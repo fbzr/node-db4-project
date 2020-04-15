@@ -4,5 +4,7 @@ const server = express();
 
 server.use(express.json());
 
+server.use('/api/recipes', require('./api/routes/recipes'));
+
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(`**** Server running on port ${PORT} ****`));
