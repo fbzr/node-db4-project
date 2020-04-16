@@ -1,5 +1,5 @@
 const express = require('express');
-const recipesDB = require('../../data/recipes');
+const recipesDB = require('../../data/helpers/recipes');
 const verifyRecipeId = require('../middleware/verifyRecipeId');
 
 const router = express.Router();
@@ -35,6 +35,17 @@ router.get('/:id/shoppingList', async (req, res, next) => {
     try {
         const list = await recipesDB.getShoppingList(req.params.id);
         res.json(list);
+    } catch (err) {
+        next(err);
+    }
+});
+
+// @route   GET /api/recipes/:id/instructions
+// @desc    return an array with all instructions/steps in order
+router.get('/:id/instructions', async (req, res, next) => {
+    try {
+        const instructions = await recipesDB.getInstructions(req.params.id);
+        res.json(instructions);
     } catch (err) {
         next(err);
     }

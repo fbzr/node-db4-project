@@ -1,4 +1,4 @@
-const db = require('./db-config');
+const db = require('../db-config');
 
 const getAll = () => db('recipes');
 
@@ -9,6 +9,12 @@ const getShoppingList = id => {
         .where('ingredients_recipes.recipe_id', id)
         .join('ingredients', 'ingredients.id', 'ingredients_recipes.ingredient_id')
         .select('ingredients.name as ingredient', 'ingredients_recipes.quantity');
+}
+
+const getInstructions = id => {
+    return db('instructions')
+        .where({ recipe_id: id })
+        .orderBy('step');
 }
 
 const add = async recipe => {
@@ -27,6 +33,7 @@ module.exports = {
     getAll,
     getById,
     getShoppingList,
+    getInstructions,
     add,
     remove,
     update

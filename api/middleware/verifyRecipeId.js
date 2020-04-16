@@ -1,4 +1,4 @@
-const recipesDB = require('../../data/recipes');
+const recipesDB = require('../../data/helpers/recipes');
 
 module.exports = async (req, res, next) => {
     try {
