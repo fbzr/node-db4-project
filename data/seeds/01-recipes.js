@@ -6,8 +6,7 @@ exports.seed = function(knex) {
       // Inserts seed entries
       return knex('recipes').insert([
         {name: 'Moqueca de Camarão (Brazilian Shrimp Stew)'},
-        {name: 'rowValue2'},
-        {name: 'rowValue3'}
+        {name: 'Brazilian Beef Stroganoff'}
       ]);
     });
 };
