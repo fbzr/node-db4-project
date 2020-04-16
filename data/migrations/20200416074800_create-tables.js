@@ -38,6 +38,7 @@ exports.up = function(knex) {
             .inTable('recipes')
             .onUpdate('CASCADE')
             .onDelete('CASCADE');
+        tbl.unique(['step', 'recipe_id']);
     });
 };
   
