@@ -25,6 +25,7 @@ exports.up = function(knex) {
             .onUpdate('CASCADE')
             .onDelete('CASCADE');
         tbl.float('quantity', 14, 10);
+        tbl.unique(['recipe_id', 'ingredient_id']);
     })
     .createTable('instructions', tbl => {
         tbl.increments();
