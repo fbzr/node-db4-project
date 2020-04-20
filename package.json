@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/fbzr/node-db4-project#readme",
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "knex": "^0.20.14",
     "nodemon": "^2.0.3",
     "sqlite3": "^4.1.1"

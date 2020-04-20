@@ -24,22 +24,18 @@ module.exports = {
   },
 
   production: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
+    client: 'pq',
+    connection: process.env.DATABASE_URL,
+    searchPath: ['public'],
     pool: {
       min: 2,
       max: 10
     },
     migrations: {
-      tableName: 'knex_migrations',
-      directory: './data/migrations'
+      directory: __dirname + '/data/migrations'
     },
     seeds: {
-      directory: './data/seeds'
+      directory: __dirname + '/data/seeds'
     }
   }
 
